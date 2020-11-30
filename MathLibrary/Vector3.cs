@@ -88,5 +88,31 @@ namespace MathLibrary
         {
             return (lhs.X * rhs.X) + (lhs.Y * rhs.Y);
         }
+
+        public static Vector3 operator +(Vector3 lhs, Vector3 rhs)
+        {
+            return new Vector3(lhs.X + rhs.X, lhs.Y + rhs.Y, lhs.Z + rhs.Z);
+        }
+
+        public static Vector3 operator -(Vector3 lhs, Vector3 rhs)
+        {
+            return new Vector3(lhs.X - rhs.X, lhs.Y - rhs.Y, lhs.Z - rhs.Z);
+        }
+
+        public static Vector3 operator *(Vector3 lhs, float scalar)
+        {
+            return new Vector3(lhs.X * scalar, lhs.Y * scalar, lhs.Z * scalar);
+        }
+        
+
+        public static Vector3 operator *(float scalar, Vector3 lhs)
+        {
+            return new Vector3(lhs.X * scalar, lhs.Y * scalar, lhs.Z * scalar);
+        }
+
+        public static Vector3 operator /(Vector3 lhs, float scalar)
+        {
+            return new Vector3(lhs.X / scalar, lhs.Y / scalar, lhs.Z / scalar);
+        }
     }
 }
