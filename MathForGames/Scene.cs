@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using MathLibrary;
 
 namespace MathForGames
 {
     class Scene
     {
         private Actor[] _actors;
+        private Matrix3 _
 
         public Scene()
         {
