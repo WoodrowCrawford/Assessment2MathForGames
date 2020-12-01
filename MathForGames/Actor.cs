@@ -17,6 +17,7 @@ namespace MathForGames
         protected Matrix3 _rotaiton = new Matrix3();
         protected Matrix3 _scale = new Matrix3();
         protected Actor _parent;
+        protected Color _raycolor;
         protected Actor[] _children = new Actor[0];
         protected float _rotationAngle;
         protected float _collisionRadius;
@@ -67,7 +68,7 @@ namespace MathForGames
             set
             {
                 _velocity = value;
-            }
+            } 
 
         }
 
@@ -81,6 +82,27 @@ namespace MathForGames
             {
                 _speed = value;
             }
+        }
+
+        public Actor(float x, float y, char icon = ' ')
+        {
+            _icon = icon;
+            _localTransform = new Matrix3();
+            LocalPosition = new Vector2(x, y);
+            _velocity = new Vector2();
+        }
+
+        public Actor(float x, float y, Color raycolor, char icon = ' ')
+            :this(x,y,icon)
+        {
+            _localTransform = new Matrix3();
+            _raycolor = raycolor;
+        }
+
+        public void AddChild(Actor child)
+        {
+            Actor[] tempArray = new Actor[_children.Length + 1];
+            for (int)
         }
 
         public void Start()
