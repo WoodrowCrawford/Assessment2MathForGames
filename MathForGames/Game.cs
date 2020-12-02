@@ -13,6 +13,7 @@ namespace MathForGames
         public static bool _gameOver = false;
         private static Scene[] _scenes;
         private static int _currentSceneIndex;
+        
         public static int CurrentSceneIndex
         {
             get
@@ -21,11 +22,10 @@ namespace MathForGames
             }
         }
 
-
-
-      
-
-
+        public static void SetGameOver(bool value)
+        {
+            _gameOver = value;
+        }
 
         public static Scene GetScene(int index)
         {
@@ -61,6 +61,7 @@ namespace MathForGames
 
             return index;
         }
+
 
         public static bool RemoveScene(Scene scene)
         {
@@ -120,10 +121,7 @@ namespace MathForGames
         }
 
 
-        public static void SetGameOver(bool value)
-        {
-            _gameOver = value;
-        }
+       
 
 
         //Called when the game begins. Use this for initialization.
@@ -146,8 +144,8 @@ namespace MathForGames
 
             //Creates the new characters
             Link link = new Link(0, 4, Color.YELLOW, '?');
-            Enemy enemy1 = new Enemy(5, 7, Color.BLUE, '!');
-            Enemy enemy2 = new Enemy(12, 4, Color.BLUE, '+');
+            Enemy enemy1 = new Enemy(5, 7, new Vector2(5, 6), new Vector2(4, 3), new Vector2(9, 6), Color.BLUE, '!');
+            Enemy enemy2 = new Enemy(12, 4, new Vector2(9, 2), new Vector2(5, 2), new Vector2(6, 5), Color.BLUE, '+');
             
 
             //Sets the characters starting value

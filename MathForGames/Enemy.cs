@@ -12,6 +12,9 @@ namespace MathForGames
         private float _speed;
         private Sprite _sprite;
         private bool _canMove = true;
+        private Vector2 _moveTo1;
+        private Vector2 _moveTo2;
+        private Vector2 _moveTo3;
 
         public float Speed
         {
@@ -37,20 +40,63 @@ namespace MathForGames
             }
         }
 
+        public Vector2 MoveTo1
+        {
+            get
+            {
+                return _moveTo1;
+            }
+            set
+            {
+                _moveTo1 = value;
+            }
+
+        }
+
+        public Vector2 MoveTo2
+        {
+            get
+            {
+                return _moveTo2;
+            }
+            set
+            {
+                _moveTo2 = value;
+            }
+        }
+
+        public Vector2 MoveTo3
+        {
+            get
+            {
+                return _moveTo3;
+            }
+            set
+            {
+                _moveTo3 = value;
+            }
+        }
+
         //This creates the base stats for enemy 1
-        public Enemy(float x, float y, char icon = ' ')
+        public Enemy(float x, float y, Vector2 MoveTo1, Vector2 MoveTo2, Vector2 MoveTo3, char icon = ' ')
             : base (x, y, icon)
         {
             _sprite = new Sprite("Images/Enemy1.png");
             _health = 2;
+            MoveTo1 = _moveTo1;
+            MoveTo2 = _moveTo2;
+            MoveTo3 = _moveTo3;
         }
 
         //This creates the base stats for enemy 2
-        public Enemy(float x, float y, Color rayColor, char icon = ' ')
+        public Enemy(float x, float y, Vector2 MoveTo1, Vector2 MoveTo2, Vector2 MoveTo3, Color rayColor, char icon = ' ')
             : base (x, y, rayColor, icon)
         {
             _sprite = new Sprite("Images/Enemy2.png");
             _health = 2;
+            MoveTo1 = _moveTo1;
+            MoveTo2 = _moveTo2;
+            MoveTo3 = _moveTo3;
         }
 
        
