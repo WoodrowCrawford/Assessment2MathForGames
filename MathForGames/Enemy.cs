@@ -67,12 +67,29 @@ namespace MathForGames
         }
 
         //Movement pattern for the enemy only when alive
-        public bool MovePattern(Enemy enemy)
+
+
+        public override void Start()
         {
-            while (enemy._health <= 0 && _canMove == true)
-            {
-               
-            }
+            base.Start();
+        }
+
+        public override void Update(float deltaTime)
+        {
+
+            if (!_canMove)
+                return;
+
+           
+
+            velocity = velocity.Normalized * Speed;
+            base.Update(deltaTime);
+        }
+
+        public override void Draw()
+        {
+            _sprite.Draw(_globalTransform);
+            base.Draw();
         }
     }
 }

@@ -136,7 +136,7 @@ namespace MathForGames
             //Room room = new Room(Raylib., Console.WindowWidth);
 
             //Set up console window
-            Console.CursorVisible = true;
+            Console.CursorVisible = false;
             Console.Title = "Random Game";
 
             //Create a new scene for our actors to exist in

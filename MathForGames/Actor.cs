@@ -250,6 +250,14 @@ namespace MathForGames
             LocalPosition += _velocity * deltaTime;
         }
 
+        public virtual void Attack(Link link, Enemy enemy)
+        {
+            if (Raylib.IsKeyPressed(KeyboardKey.KEY_SPACE) == true && link.LocalPosition == enemy.LocalPosition)
+            {
+                enemy._health = enemy._health - 1;
+            }
+        }
+
         public virtual void Draw()
         {
             Raylib.DrawLine(

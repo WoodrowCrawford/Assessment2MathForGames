@@ -55,17 +55,20 @@ namespace MathForGames
             _canMove = false;
         }
 
-        public virtual void OnCollision(Link link)
+        public virtual void OnCollision(Link link, Enemy enemy)
         {
-            if (link._health <= 0)
-                link._health = _health - 1;
+            if (link._health <= 0 && CheckCollision(enemy) == true)
+                link._health = link._health - 1;
 
 
             _canMove = false;
             
         }
 
-        
+        public override void Attack(Link link, Enemy enemy)
+        {
+            base.Attack(link, enemy);
+        }
 
         public override void Start()
         {
@@ -82,6 +85,8 @@ namespace MathForGames
                 + Convert.ToInt32(Game.GetKeyDown((int)KeyboardKey.KEY_D));
             int yDirection = -Convert.ToInt32(Game.GetKeyDown((int)KeyboardKey.KEY_W))
                 + Convert.ToInt32(Game.GetKeyDown((int)KeyboardKey.KEY_S));
+
+           
             
             velocity = velocity.Normalized * Speed;
             base.Update(deltaTime);
