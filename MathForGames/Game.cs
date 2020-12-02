@@ -20,9 +20,10 @@ namespace MathForGames
             }
         }
 
-        private static bool _gameOver = false;
+       
 
         public static ConsoleColor ConsoleColor { get; set; } = ConsoleColor.DarkRed;
+
 
 
         public static Scene GetScene(int index)
@@ -132,6 +133,7 @@ namespace MathForGames
             Raylib.SetTargetFPS(60);
             Raylib.LoadImage("Images/Map.png");
 
+
             //This is the room that the player will play in
             //Room room = new Room(Raylib., Console.WindowWidth);
 
@@ -149,6 +151,7 @@ namespace MathForGames
             
 
             //Sets the characters starting value
+
             
 
             //Adds the characters to the scene
@@ -169,6 +172,10 @@ namespace MathForGames
                 _scenes[_currentSceneIndex].Start();
 
             _scenes[_currentSceneIndex].Update(deltaTime);
+
+            if (_gameOver == true)
+                End();
+
         }
 
         //Used to display objects and other info on the screen.

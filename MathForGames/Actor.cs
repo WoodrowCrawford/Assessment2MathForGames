@@ -213,7 +213,7 @@ namespace MathForGames
 
         public virtual void OnCollision(Actor other)
         {
-            _health = 1;
+            
         }
 
         private void UpdateTransforms()

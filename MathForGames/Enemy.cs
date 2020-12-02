@@ -53,13 +53,12 @@ namespace MathForGames
             _health = 2;
         }
 
-
        
-
-        public virtual void OnCollision(Enemy enemy, Scene scene)
+        //This checks to see if the enemy has collided with Link
+        public virtual void OnCollision(Enemy enemy, Scene scene, Link link, Actor actor)
         {
-            if (enemy._health <= 0)
-                enemy._health = _health - 1;
+            if (enemy._health <= 0 && actor.CheckCollision(link) == true)
+                enemy._health = enemy._health - 1;
 
 
             scene.RemoveActor(enemy);

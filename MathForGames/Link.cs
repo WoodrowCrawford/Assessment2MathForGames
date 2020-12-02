@@ -36,6 +36,7 @@ namespace MathForGames
             }
         }
 
+        //This creates the base stats for Link
         public Link(float x, float y, char icon = ' ')
             : base(x, y, icon)
         {
@@ -43,6 +44,8 @@ namespace MathForGames
             _health = 2;
         }
 
+
+        //An overloaded function for Link
         public Link(float x, float y, Color rayColor, char icon = ' ')
             : base (x, y, rayColor, icon)
         {
@@ -50,11 +53,15 @@ namespace MathForGames
             _health = 2;
         }
 
+
+        //Makes it so that the player can not move if they ran out of health
         public void DisableControls()
         {
             _canMove = false;
         }
 
+
+        //Checks to see if Link has collided with an enemy
         public virtual void OnCollision(Link link, Enemy enemy)
         {
             if (link._health <= 0 && CheckCollision(enemy) == true)
@@ -62,9 +69,12 @@ namespace MathForGames
 
 
             _canMove = false;
-            
+            Game._gameOver = true;
         }
 
+
+        //If Link is close to an enemy and presses Space, they will deal damage to the 
+        //enemy.
         public override void Attack(Link link, Enemy enemy)
         {
             base.Attack(link, enemy);
@@ -86,7 +96,7 @@ namespace MathForGames
             int yDirection = -Convert.ToInt32(Game.GetKeyDown((int)KeyboardKey.KEY_W))
                 + Convert.ToInt32(Game.GetKeyDown((int)KeyboardKey.KEY_S));
 
-           
+      
             
             velocity = velocity.Normalized * Speed;
             base.Update(deltaTime);
