@@ -60,5 +60,11 @@ namespace MathForGames
             base.Update(deltaTime);
         }
 
+        public override void Draw()
+        {
+            _sprite.Draw(_globalTransform);
+            base.Draw();
+        }
+
     }
 }
