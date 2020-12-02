@@ -7,6 +7,7 @@ namespace MathForGames
 {
     class Link : Actor
     {
+        private int _health = 2;
         private float _speed = 1;
         private Sprite _sprite;
         private bool _canMove = true;
@@ -23,22 +24,48 @@ namespace MathForGames
             }
         }
 
+        public float Health
+        {
+            get
+            {
+                return _health;
+            }
+            set
+            {
+                _health = 2;
+            }
+        }
+
         public Link(float x, float y, char icon = ' ')
             : base(x, y, icon)
         {
             _sprite = new Sprite("Images/Link.png");
+            _health = 2;
         }
 
         public Link(float x, float y, Color rayColor, char icon = ' ')
             : base (x, y, rayColor, icon)
         {
             _sprite = new Sprite("Images/Link.png");
+            _health = 2;
         }
 
         public void DisableControls()
         {
             _canMove = false;
         }
+
+        public virtual void OnCollision(Link link)
+        {
+            if (link._health <= 0)
+                link._health = _health - 1;
+
+
+            _canMove = false;
+            
+        }
+
+        
 
         public override void Start()
         {

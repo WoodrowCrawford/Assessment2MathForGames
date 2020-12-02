@@ -8,6 +8,7 @@ namespace MathForGames
 {
     class Actor
     {
+        private int _health = 2;
         private float _speed = 3;
         protected char _icon = ' ';
         private Vector2 _velocity = new Vector2();
@@ -85,10 +86,21 @@ namespace MathForGames
             }
         }
 
+        private float Health
+        {
+            get
+            {
+                return _health;
+            }
+            set
+            {
+                _health = 2;
+            }
+        }
+
         public Actor(float x, float y, char icon = ' ')
         {
             _icon = icon;
-            
             _localTransform = new Matrix3();
             LocalPosition = new Vector2(x, y);
             _velocity = new Vector2();
@@ -100,6 +112,14 @@ namespace MathForGames
         {
             _localTransform = new Matrix3();
             _raycolor = raycolor;
+        }
+
+
+        //This is used for the Room Class only
+        public Actor(float x, float y)
+        {
+            _globalTransform = new Matrix3();
+
         }
 
         public void AddChild(Actor child)
@@ -193,7 +213,7 @@ namespace MathForGames
 
         public virtual void OnCollision(Actor other)
         {
-
+            _health = 1;
         }
 
         private void UpdateTransforms()
@@ -250,7 +270,7 @@ namespace MathForGames
             }
 
 
-            Console.ForegroundColor = Game.DefaultColor;
+            Console.ForegroundColor = Game.ConsoleColor;
         }
 
         public virtual void End()

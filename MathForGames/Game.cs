@@ -24,6 +24,7 @@ namespace MathForGames
 
         public static ConsoleColor ConsoleColor { get; set; } = ConsoleColor.DarkRed;
 
+
         public static Scene GetScene(int index)
         {
             if (index < 0 || index >= _scenes.Length)
@@ -126,12 +127,16 @@ namespace MathForGames
         //Called when the game begins. Use this for initialization.
         public void Start()
         {
-            //Creates a new window for raylib
+            //Creates a new window for raylib with the Room for the background
             Raylib.InitWindow(1024, 760, "Random Game");
             Raylib.SetTargetFPS(60);
+            Raylib.LoadImage("Images/Map.png");
+
+            //This is the room that the player will play in
+            //Room room = new Room(Raylib., Console.WindowWidth);
 
             //Set up console window
-            Console.CursorVisible = false;
+            Console.CursorVisible = true;
             Console.Title = "Random Game";
 
             //Create a new scene for our actors to exist in
@@ -139,10 +144,21 @@ namespace MathForGames
 
             //Creates the new characters
             Link link = new Link(0, 4, Color.YELLOW, '?');
+            Enemy enemy1 = new Enemy(5, 7, Color.BLUE, '!');
+            Enemy enemy2 = new Enemy(12, 4, Color.BLUE, '+');
+            
 
             //Sets the characters starting value
+            
 
             //Adds the characters to the scene
+            scene1.AddActor(link);
+            scene1.AddActor(enemy1);
+            scene1.AddActor(enemy2);
+
+            //Adds or removes parent or child for Actor if needed
+            link.AddChild(enemy2);
+
         }
 
 
