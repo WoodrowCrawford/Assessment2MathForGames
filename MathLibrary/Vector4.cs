@@ -94,7 +94,7 @@ namespace MathLibrary
 
         public Vector4 Normalize(Vector4 vector)
         {
-            if vector.Magnitude == 0)
+            if (vector.Magnitude == 0)
                 return new Vector4();
 
             return vector / vector.Magnitude;
@@ -112,7 +112,7 @@ namespace MathLibrary
 
         public static Vector4 operator +(Vector4 lhs, Vector4 rhs)
         {
-            return new Vector4(lhs.X + rhs.X, lhs.Y + rhs.Y, lhs.Z + rhs.Z, lhs.W + rhs.W
+            return new Vector4(lhs.X + rhs.X, lhs.Y + rhs.Y, lhs.Z + rhs.Z, lhs.W + rhs.W);
         }
 
         public static Vector4 operator -(Vector4 lhs, Vector4 rhs)
