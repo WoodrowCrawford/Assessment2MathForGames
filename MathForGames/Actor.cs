@@ -19,7 +19,7 @@ namespace MathForGames
         protected Matrix3 _scale = new Matrix3();
         protected Actor _parent;
         protected Color _raycolor;
-        protected ConsoleColor _color;
+       
         protected Actor[] _children = new Actor[0];
         protected float _rotationAngle;
         protected float _collisionRadius;
@@ -268,7 +268,7 @@ namespace MathForGames
                 Color.ORANGE
                 );
 
-            Console.ForegroundColor = _color;
+           
 
             if (WorldPosition.X >= 0 && WorldPosition.X < Console.WindowWidth
               && WorldPosition.Y >= 0 && WorldPosition.Y < Console.WindowHeight)
@@ -278,7 +278,7 @@ namespace MathForGames
             }
 
 
-            Console.ForegroundColor = Game.ConsoleColor;
+            
         }
 
         public virtual void End()

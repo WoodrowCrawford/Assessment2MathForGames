@@ -10,6 +10,7 @@ namespace MathForGames
 {
     class Game
     {
+        public static bool _gameOver = false;
         private static Scene[] _scenes;
         private static int _currentSceneIndex;
         public static int CurrentSceneIndex
@@ -20,9 +21,9 @@ namespace MathForGames
             }
         }
 
-       
 
-        public static ConsoleColor ConsoleColor { get; set; } = ConsoleColor.DarkRed;
+
+      
 
 
 
@@ -129,7 +130,7 @@ namespace MathForGames
         public void Start()
         {
             //Creates a new window for raylib with the Room for the background
-            Raylib.InitWindow(1024, 760, "Random Game");
+            Raylib.InitWindow(1024, 760, "Link's Quest");
             Raylib.SetTargetFPS(60);
             Raylib.LoadImage("Images/Map.png");
 
@@ -137,9 +138,8 @@ namespace MathForGames
             //This is the room that the player will play in
             //Room room = new Room(Raylib., Console.WindowWidth);
 
-            //Set up console window
-            Console.CursorVisible = false;
-            Console.Title = "Random Game";
+
+          
 
             //Create a new scene for our actors to exist in
             Scene scene1 = new Scene();
@@ -151,6 +151,7 @@ namespace MathForGames
             
 
             //Sets the characters starting value
+            
 
             
 
